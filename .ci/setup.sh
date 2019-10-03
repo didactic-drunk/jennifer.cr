@@ -38,5 +38,8 @@ if [ "$DB" == 'mysql' ] || [ "$PAIR" == '1' ]; then
 fi
 
 bash ./examples/setup.sh .ci/database.yml
+sudo apt-get install libgc-dev
+sudo apt-get -f install
+ld -v
 
-make sam db:setup
+crystal examples/run.cr -- db:setup
